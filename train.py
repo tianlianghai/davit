@@ -403,14 +403,14 @@ def main():
         input_data = torch.randn((1, 3, 224, 224))
     # macs, params = profile(model, inputs=(input_data,))
     # macs, params = clever_format([macs, params], "%.3f")
-    flops = FlopCountAnalysis(model, input_data)
-    if args.local_rank == 0:
-        # _logger.info(model)
-        # _logger.info(f'macs: {macs}, params: {params}')
-        _logger.info(flop_count_str(flops))
-        _logger.info(f'flops: {flops.total()}')  # flops.by_module_and_operator()
-        _logger.info(flop_count_table(flops))
-        _logger.info(f'flops: {flops.total()}')  # flops.by_module_and_operator()
+    # flops = FlopCountAnalysis(model, input_data)
+    # if args.local_rank == 0:
+    #     # _logger.info(model)
+    #     # _logger.info(f'macs: {macs}, params: {params}')
+    #     _logger.info(flop_count_str(flops))
+    #     _logger.info(f'flops: {flops.total()}')  # flops.by_module_and_operator()
+    #     _logger.info(flop_count_table(flops))
+    #     _logger.info(f'flops: {flops.total()}')  # flops.by_module_and_operator()
     if args.num_classes is None:
         assert hasattr(model, 'num_classes'), 'Model must have `num_classes` attr if not set on cmd line/config.'
         args.num_classes = model.num_classes  # FIXME handle model default vs config num_classes more elegantly
