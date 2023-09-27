@@ -397,10 +397,10 @@ def main():
         scriptable=args.torchscript,
         checkpoint_path=args.initial_checkpoint)
 
-    if hasattr(model, 'img_size'):
-        input_data = torch.randn((1, 3) + model.img_size)
-    else:
-        input_data = torch.randn((1, 3, 224, 224))
+    # if hasattr(model, 'img_size'):
+    #     input_data = torch.randn((1, 3) + model.img_size)
+    # else:
+    #     input_data = torch.randn((1, 3, 224, 224))
     # macs, params = profile(model, inputs=(input_data,))
     # macs, params = clever_format([macs, params], "%.3f")
     # flops = FlopCountAnalysis(model, input_data)
